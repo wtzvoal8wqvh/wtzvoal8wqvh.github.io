@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暗凭村 - 乡村影像社区 - 记录被遗忘的村落故事</title>
+<meta name="description" content="暗凭村官方网站，一个专注于乡村影像记录与在地文化挖掘的视频品牌社区，持续运营原创村落故事与创作者内容生态。">
+<style>
+:root{
+  --bg:#0f1410;
+  --bg2:#171f18;
+  --card:#1d2820;
+  --card2:#243128;
+  --line:#33452f;
+  --green:#7fbf6a;
+  --green2:#a8d99a;
+  --earth:#c8a06a;
+  --earth2:#e0c090;
+  --text:#e8f0e2;
+  --muted:#9fb49a;
+  --red:#d9694f;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:104px}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* ===== 公告条 + 页头吸顶 ===== */
+.topbar-wrap{position:sticky;top:0;z-index:100}
+.notice{
+  background:linear-gradient(90deg,#22371f,#2f4a28 55%,#3a5a2f);
+  color:var(--green2);font-size:13px;
+  border-bottom:1px solid #3d5535;
+}
+.notice-inner{
+  max-width:1240px;margin:0 auto;padding:8px 24px;
+  display:flex;align-items:center;gap:12px;overflow:hidden;
+}
+.notice .tag{
+  background:var(--earth);color:#20180d;font-weight:700;
+  font-size:11px;padding:2px 8px;border-radius:3px;letter-spacing:.5px;flex:none;
+}
+.notice-track{flex:1;overflow:hidden;white-space:nowrap}
+.notice-track span{
+  display:inline-block;padding-right:60px;
+  animation:noticeScroll 26s linear infinite;
+}
+@keyframes noticeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.notice-track:hover span{animation-play-state:paused}
+.notice .close{font-size:16px;color:var(--muted);flex:none;padding:0 4px}
+.notice .close:hover{color:var(--text)}
+
+header.top{
+  background:rgba(15,20,16,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.top-inner{
+  max-width:1240px;margin:0 auto;padding:12px 24px;
+  display:flex;align-items:center;gap:28px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex:none}
+.logo-mark{
+  width:38px;height:38px;border-radius:10px;
+  background:conic-gradient(from 210deg,var(--green),var(--earth),var(--green2),var(--green));
+  display:grid;place-items:center;font-weight:800;color:#101a0d;font-size:17px;
+}
+.logo-txt b{font-size:19px;letter-spacing:1px;display:block;line-height:1.2}
+.logo-txt small{font-size:10px;color:var(--muted);letter-spacing:3px}
+nav.main{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+nav.main a{
+  padding:8px 13px;border-radius:8px;font-size:14.5px;color:#cfdcc8;
+  transition:.2s;
+}
+nav.main a:hover,nav.main a.active{background:var(--card2);color:var(--green2)}
+.search-box{display:flex;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:2px 2px 2px 12px;flex:none}
+.search-box input{
+  background:none;border:none;outline:none;color:var(--text);
+  font-size:13.5px;width:150px;padding:7px 0;font-family:inherit;
+}
+.search-box input::placeholder{color:#6d8068}
+.search-box button{
+  background:var(--green);color:#12200e;font-weight:700;font-size:13px;
+  padding:7px 13px;border-radius:7px;transition:.2s;
+}
+.search-box button:hover{background:var(--green2)}
+.hamburger{display:none;font-size:24px;padding:4px 8px;color:var(--green2)}
+.mobile-nav{display:none;flex-direction:column;padding:8px 24px 18px;border-top:1px solid var(--line)}
+.mobile-nav a{padding:11px 4px;border-bottom:1px solid #263324;font-size:15px;color:#cfdcc8}
+
+/* ===== 通用容器与标题 ===== */
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+section.block{padding:72px 0}
+section.block.alt{background:var(--bg2)}
+.sec-head{margin-bottom:38px}
+.sec-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:2px;color:var(--earth);font-weight:600;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.sec-kicker::before{content:"";width:22px;height:2px;background:var(--earth);display:block}
+h2.sec-title{font-size:30px;letter-spacing:.5px;line-height:1.3}
+h2.sec-title em{font-style:normal;color:var(--green)}
+.sec-desc{color:var(--muted);font-size:14.5px;margin-top:10px;max-width:720px}
+h3{font-size:18px;line-height:1.45}
+
+/* ===== 首屏 ===== */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-grid{
+  display:grid;grid-template-columns:6fr 4fr;gap:0;align-items:stretch;
+  max-width:1240px;margin:0 auto;
+}
+.hero-copy{padding:64px 30px 64px 24px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(127,191,106,.12);border:1px solid #3d5535;
+  color:var(--green2);font-size:12.5px;padding:5px 13px;border-radius:20px;
+  letter-spacing:1px;margin-bottom:20px;
+}
+.hero-badge i{width:7px;height:7px;border-radius:50%;background:var(--green);display:block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:52px;line-height:1.12;letter-spacing:2px;margin-bottom:18px}
+h1 span{
+  background:linear-gradient(100deg,var(--green2),var(--earth2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-slogan{font-size:17px;color:var(--earth2);margin-bottom:18px;letter-spacing:1px}
+.hero-intro{color:#c4d2be;font-size:14.5px;max-width:560px;margin-bottom:28px;text-align:justify}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 24px;
+  border-radius:9px;font-size:14.5px;font-weight:600;transition:.22s;
+}
+.btn-primary{background:var(--green);color:#11200d}
+.btn-primary:hover{background:var(--green2);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line);color:var(--green2)}
+.btn-ghost:hover{background:var(--card2);border-color:var(--green)}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+.hero-stats .st b{display:block;font-size:28px;color:var(--green2);line-height:1.2}
+.hero-stats .st span{font-size:12.5px;color:var(--muted)}
+.hero-visual{position:relative;min-height:440px}
+.hero-visual svg{width:100%;height:100%;display:block}
+.hero-float{
+  position:absolute;left:16px;bottom:22px;right:20px;
+  background:rgba(15,20,16,.82);backdrop-filter:blur(8px);
+  border:1px solid #3d5535;border-radius:12px;padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-float .play{
+  width:42px;height:42px;border-radius:50%;background:var(--earth);
+  display:grid;place-items:center;flex:none;color:#20180d;font-size:15px;
+}
+.hero-float b{font-size:14px;display:block}
+.hero-float small{font-size:12px;color:var(--muted)}
+
+/* ===== 焦点内容 ===== */
+.focus-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:22px}
+.vcard{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;transition:.25s;position:relative;display:flex;flex-direction:column;
+}
+.vcard:hover{transform:translateY(-4px);border-color:#4e6a44;box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#20301f}
+.thumb svg{width:100%;height:100%;display:block;transition:transform .5s}
+.vcard:hover .thumb svg{transform:scale(1.05)}
+.thumb .overlay{
+  position:absolute;inset:auto 0 0 0;height:55%;
+  background:linear-gradient(to top,rgba(10,14,10,.88),transparent);
+}
+.thumb .badge-tl{
+  position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;
+  background:var(--earth);color:#20180d;padding:3px 9px;border-radius:4px;letter-spacing:.5px;
+}
+.thumb .dur{position:absolute;right:10px;bottom:10px;font-size:11.5px;background:rgba(0,0,0,.72);padding:2px 7px;border-radius:4px;color:#dfeada}
+.thumb .vplay{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;background:rgba(15,20,16,.62);
+  border:1.5px solid rgba(168,217,154,.8);display:grid;place-items:center;
+  color:#d8f0cf;font-size:17px;padding-left:4px;transition:.25s;
+}
+.vcard:hover .vplay{background:var(--green);color:#11200d;border-color:var(--green)}
+.vbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+.tagline{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:11.5px;color:var(--green2);background:rgba(127,191,106,.12);border:1px solid #364b30;padding:1px 8px;border-radius:4px}
+.tag.earth{color:var(--earth2);background:rgba(200,160,106,.12);border-color:#4d3f28}
+.vbody h3{font-size:16.5px}
+.vbody p{font-size:13px;color:var(--muted);flex:1;text-align:justify}
+.vmeta{display:flex;align-items:center;gap:9px;font-size:12.5px;color:#8ea388;border-top:1px solid #2b3a27;padding-top:11px;margin-top:2px}
+.avatar{
+  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:#14200f;flex:none;
+}
+.vmeta .spacer{flex:1}
+.act{display:flex;align-items:center;gap:4px;font-size:12.5px;color:#8ea388;padding:2px 5px;border-radius:5px;transition:.2s}
+.act:hover{color:var(--green2);background:var(--card2)}
+.act.liked{color:var(--red)}
+.act.faved{color:var(--earth2)}
+.focus-side{display:grid;grid-template-rows:repeat(4,1fr);gap:14px}
+.mini{
+  display:flex;gap:13px;background:var(--card);border:1px solid var(--line);
+  border-radius:11px;overflow:hidden;padding:9px;transition:.22s;align-items:center;
+}
+.mini:hover{border-color:#4e6a44;background:var(--card2)}
+.mini .mth{width:112px;aspect-ratio:16/10;border-radius:8px;overflow:hidden;flex:none;position:relative}
+.mini .mth svg{width:100%;height:100%}
+.mini .mth .vplay{width:26px;height:26px;font-size:10px;border-width:1px}
+.mini .mi b{font-size:13.5px;display:block;line-height:1.45;margin-bottom:3px}
+.mini .mi small{font-size:11.5px;color:var(--muted)}
+
+/* ===== 热门视频流 ===== */
+.filter-bar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px}
+.chip{
+  font-size:13px;padding:6px 15px;border-radius:20px;
+  border:1px solid var(--line);color:#bccdb5;transition:.2s;background:var(--card);
+}
+.chip:hover{border-color:var(--green);color:var(--green2)}
+.chip.active{background:var(--green);color:#11200d;border-color:var(--green);font-weight:700}
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.no-result{
+  display:none;text-align:center;color:var(--muted);padding:46px 0;font-size:14.5px;
+  border:1px dashed var(--line);border-radius:12px;
+}
+.no-result.show{display:block}
+
+/* ===== 专题企划 ===== */
+.special-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.special{
+  position:relative;border-radius:14px;overflow:hidden;min-height:270px;
+  border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;
+  transition:.25s;
+}
+.special:hover{transform:translateY(-4px);border-color:#4e6a44}
+.special .bgimg{position:absolute;inset:0}
+.special .bgimg svg{width:100%;height:100%;object-fit:cover}
+.special .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,14,9,.95) 8%,rgba(9,14,9,.35) 62%,rgba(9,14,9,.15))}
+.special .sin{position:relative;padding:22px;z-index:2}
+.special .status{
+  display:inline-block;font-size:11px;padding:2px 9px;border-radius:4px;
+  background:rgba(127,191,106,.2);border:1px solid #4e6a44;color:var(--green2);margin-bottom:9px;
+}
+.special .status.soon{background:rgba(200,160,106,.16);border-color:#5c4a2c;color:var(--earth2)}
+.special h3{font-size:19px;margin-bottom:7px}
+.special p{font-size:12.5px;color:#aebfa8;margin-bottom:10px}
+.special .count{font-size:12px;color:var(--earth2)}
+
+/* ===== 创作者矩阵 ===== */
+.creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.creator{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:22px 18px;transition:.25s;text-align:center;position:relative;
+}
+.creator:hover{transform:translateY(-4px);border-color:#4e6a44;background:var(--card2)}
+.creator .bf{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 13px;
+  display:grid;place-items:center;font-size:24px;font-weight:800;color:#14200f;
+  box-shadow:0 0 0 3px rgba(127,191,106,.18);
+}
+.creator h3{font-size:16px;margin-bottom:3px}
+.creator .field{font-size:12px;color:var(--earth2);margin-bottom:9px}
+.creator p{font-size:12.5px;color:var(--muted);min-height:56px;text-align:justify}
+.creator .nums{display:flex;justify-content:center;gap:18px;border-top:1px solid #2b3a27;padding-top:11px;margin-top:12px;font-size:12px;color:#8ea388}
+.creator .nums b{color:var(--green2);display:block;font-size:14.5px}
+.creator .more{margin-top:12px;font-size:12.5px;color:var(--green2);border:1px solid #3d5535;border-radius:6px;padding:5px 0;width:100%;transition:.2s}
+.creator .more:hover{background:rgba(127,191,106,.15)}
+
+/* ===== 影像墙 ===== */
+.wall{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.wall-item{
+  position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);
+  transition:.25s;cursor:pointer;
+}
+.wall-item:hover{transform:scale(1.015);border-color:#4e6a44}
+.wall-item svg{width:100%;height:100%;display:block}
+.wall-item .cap{
+  position:absolute;inset:auto 0 0 0;padding:26px 13px 11px;font-size:12.5px;
+  background:linear-gradient(to top,rgba(9,14,9,.92),transparent);
+}
+.wall-item .cap small{display:block;color:var(--muted);font-size:11px}
+.w1{grid-column:span 6;aspect-ratio:16/9}
+.w2{grid-column:span 3;aspect-ratio:4/5}
+.w3{grid-column:span 3;aspect-ratio:4/5}
+.w4{grid-column:span 4;aspect-ratio:1/1}
+.w5{grid-column:span 4;aspect-ratio:1/1}
+.w6{grid-column:span 4;aspect-ratio:1/1}
+
+/* ===== 故事随笔 ===== */
+.story-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.story{
+  background:var(--card);border-left:3px solid var(--earth);border-radius:0 14px 14px 0;
+  padding:26px 26px 22px;transition:.22s;
+}
+.story:hover{background:var(--card2);border-left-color:var(--green)}
+.story .sk{font-size:11.5px;letter-spacing:2px;color:var(--earth2);margin-bottom:9px}
+.story h3{font-size:18px;margin-bottom:10px}
+.story p{font-size:13.5px;color:#b9c9b3;text-align:justify}
+.story .by{display:flex;align-items:center;gap:9px;margin-top:14px;font-size:12px;color:var(--muted)}
+
+/* ===== 评价 ===== */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{
+  background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px;
+  position:relative;transition:.22s;
+}
+.review:hover{border-color:#4e6a44;background:var(--card2)}
+.review::before{
+  content:"“";position:absolute;top:6px;right:16px;font-size:48px;
+  color:rgba(127,191,106,.16);font-family:Georgia,serif;line-height:1;
+}
+.review p{font-size:13px;color:#c1d0bb;text-align:justify;margin-bottom:14px}
+.review .who{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--muted)}
+.review .who b{color:var(--text);font-size:13px;display:block;font-weight:600}
+.review .stars{color:var(--earth);font-size:12px;letter-spacing:1px}
+
+/* ===== 动态 ===== */
+.news-list{display:flex;flex-direction:column;gap:0}
+.news{
+  display:flex;gap:22px;padding:20px 4px;border-bottom:1px solid var(--line);
+  align-items:flex-start;transition:.2s;
+}
+.news:hover{background:rgba(36,49,40,.5)}
+.news .date{font-size:12.5px;color:var(--earth2);flex:none;width:88px;padding-top:3px}
+.news .nt{flex:1}
+.news .nt b{font-size:15px;display:block;margin-bottom:4px}
+.news .nt p{font-size:13px;color:var(--muted)}
+.news .kind{font-size:11px;color:var(--green2);border:1px solid #3d5535;padding:2px 8px;border-radius:4px;flex:none;margin-top:3px}
+
+/* ===== FAQ ===== */
+.faq-wrap{max-width:840px;margin:0 auto}
+details.faq{
+  background:var(--card);border:1px solid var(--line);border-radius:11px;
+  margin-bottom:12px;overflow:hidden;transition:.2s;
+}
+details.faq[open]{border-color:#4e6a44;background:var(--card2)}
+details.faq summary{
+  padding:16px 20px;font-size:15px;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"＋";color:var(--green);font-size:18px;flex:none;transition:.25s}
+details.faq[open] summary::after{content:"－";transform:rotate(180deg)}
+details.faq .fa-body{padding:0 20px 18px;font-size:13.5px;color:#b0c1aa;text-align:justify}
+
+/* ===== 投稿 / 联系 ===== */
+.join{
+  background:linear-gradient(120deg,#1c2a1a,#243a22 60%,#2c4427);
+  border:1px solid #3d5535;border-radius:18px;padding:44px;
+  display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;
+}
+.join h2{font-size:28px;margin-bottom:12px;line-height:1.35}
+.join h2 em{font-style:normal;color:var(--earth2)}
+.join p{font-size:14px;color:#bccdb5;margin-bottom:20px;text-align:justify}
+.join-list{display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:#cfdcc8}
+.join-list span{display:flex;gap:9px;align-items:baseline}
+.join-list i{color:var(--green);font-style:normal}
+.join-form{background:rgba(15,20,16,.55);border:1px solid #3d5535;border-radius:13px;padding:22px}
+.join-form label{font-size:12.5px;color:var(--muted);display:block;margin-bottom:5px}
+.join-form input,.join-form textarea{
+  width:100%;background:var(--bg);border:1px solid var(--line);border-radius:7px;
+  color:var(--text);padding:10px 12px;font-size:13.5px;font-family:inherit;outline:none;
+  margin-bottom:13px;transition:.2s;
+}
+.join-form input:focus,.join-form textarea:focus{border-color:var(--green)}
+.join-form textarea{resize:vertical;min-height:74px}
+.join-form .btn-primary{width:100%;justify-content:center}
+.form-msg{font-size:12.5px;color:var(--green2);margin-top:10px;display:none}
+.form-msg.show{display:block}
+
+/* ===== 页脚 ===== */
+footer.site{
+  background:#0b100a;border-top:1px solid var(--line);padding:52px 0 26px;margin-top:0;
+}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;margin-bottom:38px}
+.foot-brand p{font-size:13px;color:#8ea388;margin-top:14px;max-width:340px;text-align:justify}
+.foot-col h4{font-size:13.5px;color:var(--green2);margin-bottom:13px;letter-spacing:1px}
+.foot-col a{display:block;font-size:13px;color:#8ea388;padding:4px 0;transition:.2s}
+.foot-col a:hover{color:var(--green2)}
+.foot-bottom{
+  border-top:1px solid #1e2a1c;padding-top:20px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12px;color:#6f8469;
+}
+.to-top{
+  position:fixed;right:24px;bottom:26px;width:44px;height:44px;border-radius:50%;
+  background:var(--green);color:#11200d;font-size:18px;display:grid;place-items:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:.3s;z-index:90;
+}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{background:var(--green2)}
+
+/* ===== 弹窗 / Toast ===== */
+.modal-mask{
+  position:fixed;inset:0;background:rgba(5,8,5,.76);backdrop-filter:blur(4px);
+  z-index:200;display:none;align-items:center;justify-content:center;padding:22px;
+}
+.modal-mask.show{display:flex}
+.modal{
+  background:var(--card);border:1px solid #4e6a44;border-radius:16px;
+  max-width:520px;width:100%;padding:28px;position:relative;animation:pop .2s ease;
+  max-height:86vh;overflow:auto;
+}
+@keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+.modal h3{font-size:20px;margin-bottom:6px}
+.modal .sub{font-size:12.5px;color:var(--muted);margin-bottom:16px}
+.modal .close-m{position:absolute;top:14px;right:16px;font-size:22px;color:var(--muted)}
+.modal .close-m:hover{color:var(--text)}
+.modal p{font-size:13.5px;color:#bccdb5;text-align:justify;margin-bottom:10px}
+.share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.share-row button{
+  flex:1;min-width:100px;border:1px solid var(--line);border-radius:8px;padding:11px 8px;
+  font-size:13px;color:var(--green2);transition:.2s;background:var(--bg2);
+}
+.share-row button:hover{background:var(--card2);border-color:var(--green)}
+.toast{
+  position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);
+  background:#22371f;border:1px solid var(--green);color:var(--green2);
+  padding:11px 22px;border-radius:9px;font-size:13.5px;z-index:300;
+  opacity:0;pointer-events:none;transition:.3s;box-shadow:0 10px 28px rgba(0,0,0,.45);
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.comment-list{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.comment{background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-size:13px}
+.comment b{color:var(--green2);font-size:12.5px;display:block;margin-bottom:3px}
+.comment p{font-size:12.8px;color:#b9c9b3;margin:0}
+
+/* ===== 响应式 ===== */
+@media(max-width:1080px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{min-height:300px;order:-1}
+  h1{font-size:42px}
+  .focus-grid{grid-template-columns:1fr}
+  .focus-side{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .flow-grid,.special-grid,.review-grid{grid-template-columns:repeat(2,1fr)}
+  .creator-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .join{grid-template-columns:1fr;padding:32px}
+  .wall .w2,.wall .w3{grid-column:span 6}
+  .wall .w4,.wall .w5,.wall .w6{grid-column:span 6}
+}
+@media(max-width:780px){
+  nav.main{display:none}
+  .search-box{display:none}
+  .hamburger{display:block}
+  .mobile-nav.open{display:flex}
+  h1{font-size:34px}
+  h2.sec-title{font-size:23px}
+  section.block{padding:52px 0}
+  .hero-copy{padding:38px 24px 44px}
+  .flow-grid,.special-grid,.review-grid,.creator-grid,.story-grid{grid-template-columns:1fr}
+  .focus-side{grid-template-columns:1fr}
+  .hero-stats{gap:26px}
+  .news{flex-wrap:wrap;gap:8px}
+  .news .date{width:auto}
+  .wall .w1,.wall .w2,.wall .w3,.wall .w4,.wall .w5,.wall .w6{grid-column:span 12;aspect-ratio:16/9}
+  .foot-grid{grid-template-columns:1fr}
+  .join-form{padding:16px}
+  .notice-inner{padding:7px 18px}
+  .notice .tag{display:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="topbar-wrap">
+  <div class="notice" id="notice">
+    <div class="notice-inner">
+      <span class="tag">新动态</span>
+      <div class="notice-track"><span>《暗凭村·冬藏纪》第四集已上线&nbsp;&nbsp;|&nbsp;&nbsp;第二届“村口影像”征集开启报名，截止11月30日&nbsp;&nbsp;|&nbsp;&nbsp;创作者开放日·第7期：古井旁的拍摄课 已开放报名&nbsp;&nbsp;|&nbsp;&nbsp;《暗凭村·冬藏纪》第四集已上线&nbsp;&nbsp;|&nbsp;&nbsp;第二届“村口影像”征集开启报名，截止11月30日&nbsp;&nbsp;|&nbsp;&nbsp;创作者开放日·第7期：古井旁的拍摄课 已开放报名&nbsp;&nbsp;</span></div>
+      <button class="close" id="noticeClose" aria-label="关闭公告">×</button>
+    </div>
+  </div>
+  <header class="top">
+    <div class="top-inner">
+      <a href="#top" class="logo">
+        <div class="logo-mark">暗</div>
+        <div class="logo-txt"><b>暗凭村</b><small>ANPING CUN</small></div>
+      </a>
+      <nav class="main">
+        <a href="#top" class="active">首页</a>
+        <a href="#focus">影像焦点</a>
+        <a href="#special">专题企划</a>
+        <a href="#flow">热门内容</a>
+        <a href="#creators">创作者</a>
+        <a href="#wall">影像墙</a>
+        <a href="#news">企业动态</a>
+        <a href="#faq">帮助</a>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索村落、影像、创作者" aria-label="站内搜索">
+        <button id="searchBtn">搜索</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="展开导航">☰</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#top">首页</a>
+      <a href="#focus">影像焦点</a>
+      <a href="#special">专题企划</a>
+      <a href="#flow">热门内容</a>
+      <a href="#creators">创作者</a>
+      <a href="#wall">影像墙</a>
+      <a href="#news">企业动态</a>
+      <a href="#faq">帮助</a>
+    </div>
+  </header>
+</div>
+
+<!-- ================= 首屏 ================= -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-badge"><i></i>暗凭村官方网站 · 乡村影像品牌</div>
+      <h1><span>暗凭村</span></h1>
+      <div class="hero-slogan">在山雾与旧屋之间，记录一座村子的真实呼吸</div>
+      <p class="hero-intro">
+        暗凭村是一个垂直于乡村影像领域的原创视频品牌与内容生态平台。作为深耕在地文化多年的企业，我们以专业的高清影像与纪录片团队为核心，用镜头陪伴村庄的四时流转，记录手艺、方言、劳作与节令。这里既是创作者的社区，也是值得信赖的乡村记忆档案库，官网持续整理村落人物访谈、生活纪实与影像档案，致力于让每一段被忽略的日常，都能获得被看见的品质与温度。
+      </p>
+      <div class="hero-btns">
+        <a href="#focus" class="btn btn-primary">▶ 进入影像焦点</a>
+        <a href="#flow" class="btn btn-ghost">浏览全部内容</a>
+      </div>
+      <div class="hero-stats">
+        <div class="st"><b>1,286</b><span>原创影像作品</span></div>
+        <div class="st"><b>347</b><span>认证创作者</span></div>
+        <div class="st"><b>6,200万</b><span>累计播放</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 600 640" preserveAspectRatio="xMidYMid slice" role="img" aria-label="暗凭村山雾中的层叠老屋与石阶主视觉">
+        <defs>
+          <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2e4432"/><stop offset="1" stop-color="#4f6a42"/>
+          </linearGradient>
+          <linearGradient id="mistG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#cfe0c0" stop-opacity=".55"/><stop offset="1" stop-color="#a8c194" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <rect width="600" height="640" fill="url(#skyG)"/>
+        <path d="M0 330 L120 200 L230 300 L330 180 L470 320 L600 230 L600 640 L0 640 Z" fill="#243a24"/>
+        <path d="M0 390 L150 300 L290 380 L420 290 L600 380 L600 640 L0 640 Z" fill="#1b2d1c"/>
+        <circle cx="470" cy="110" r="46" fill="#e0c090" opacity=".85"/>
+        <rect x="60" y="420" width="150" height="90" fill="#3a4a30"/>
+        <path d="M45 420 L135 360 L225 420 Z" fill="#2c3b26"/>
+        <rect x="250" y="450" width="180" height="100" fill="#33422b"/>
+        <path d="M232 450 L340 378 L448 450 Z" fill="#27351f"/>
+        <rect x="120" y="530" width="200" height="110" fill="#2b3a25"/>
+        <path d="M100 530 L220 452 L340 530 Z" fill="#213019"/>
+        <circle cx="150" cy="470" r="11" fill="#e0c090" opacity=".9"/>
+        <rect x="290" y="490" width="22" height="26" fill="#e0c090" opacity=".75"/>
+        <rect x="360" y="530" width="30" height="40" fill="#c8a06a" opacity=".5"/>
+        <rect width="600" height="300" y="200" fill="url(#mistG)"/>
+        <path d="M0 600 Q150 570 300 596 T600 588 L600 640 L0 640 Z" fill="#16240f"/>
+      </svg>
+      <div class="hero-float">
+        <div class="play">▶</div>
+        <div><b>《暗凭村·冬藏纪》第四集</b><small>记录地窖、腊味与一场雪前的忙碌</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 影像焦点 ================= -->
+<section class="block" id="focus">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-kicker">FOCUS · 焦点推荐</div>
+      <h2 class="sec-title">本周<em>影像焦点</em>，来自暗凭村的现场</h2>
+      <p class="sec-desc">由品牌编辑部与创作者共同甄选的精品内容，覆盖村落纪事、手艺访谈与节令影像，官方发布，保证每一帧的清晰与真实。</p>
+    </div>
+    <div class="focus-grid">
+      <div class="vcard">
+        <div class="thumb">
+          <svg viewBox="0 0 640 360" role="img" aria-label="晨雾中的暗凭村水口桥与挑担老人封面">
+            <defs><linearGradient id="f1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c5740"/><stop offset="1" stop-color="#7fbf6a" stop-opacity=".55"/></linearGradient></defs>
+            <rect width="640" height="360" fill="url(#f1)"/>
+            <circle cx="500" cy="90" r="38" fill="#f0dcae" opacity=".9"/>
+            <path d="M0 240 Q160 200 320 240 T640 230 L640 360 L0 360 Z" fill="#1d2e1b"/>
+            <path d="M60 250 Q320 200 580 250" stroke="#c8a06a" stroke-width="8" fill="none" opacity=".8"/>
+            <rect x="250" y="150" width="140" height="110" rx="4" fill="#3a4a30"/>
+            <path d="M232 150 L320 96 L408 150 Z" fill="#2a3922"/>
+            <rect x="300" y="190" width="40" height="70" fill="#c8a06a" opacity=".55"/>
+            <circle cx="180" cy="270" r="16" fill="#1b2918"/>
+            <rect x="170" y="286" width="20" height="46" fill="#1b2918"/>
+          </svg>
+          <div class="overlay"></div>
+          <div class="badge-tl">焦点 · 村落纪事</div>
+          <div class="vplay">▶</div>
+          <div class="dur">18:42</div>
+        </div>
+        <div class="vbody">
+          <div class="tagline"><span class="tag">村落纪事</span><span class="tag earth">4K 原创</span><span class="tag">冬季</span></div>
+          <h3>水口桥头的一天：从五点半的第一担水说起</h3>
+          <p>凌晨五点，暗凭村的老桥还浮在雾里。我们跟着挑水的老人走了三趟石阶，听他讲桥下那口古井、讲四十年前嫁进村时的第一场雨。镜头记录了晨雾散尽前，村子最安静的四十分钟。</p>
+          <div class="vmeta">
+            <div class="avatar" style="background:#a8d99a">阿</div>
+            <span>阿棠</span>
+            <span class="spacer"></span>
+            <button class="act like" data-base="1284">♥ <b>1284</b></button>
+            <button class="act fav">☆ 收藏</button>
+            <button class="act share">⤴ 分享</button>
+          </div>
+        </div>
+      </div>
+      <div class="focus-side">
+        <div class="mini">
+          <div class="mth"><svg viewBox="0 0 160 100" role="img" aria-label="手艺人编竹篮特写"><rect width="160" height="100" fill="#7a5f3a"/><path d="M30 72 Q80 20 130 72" stroke="#e0c090" stroke-width="6" fill="none"/><rect x="52" y="52" width="56" height="34" fill="#c8a06a"/></svg><div class="vplay">▶</div></div>
+          <div class="mi"><b>篾匠九叔：一根竹子要过二十三道手</b><small>12:06 · 手艺访谈 · 林禾</small></div>
+        </div>
+        <div class="mini">
+          <div class="mth"><svg viewBox="0 0 160 100" role="img" aria-label="雨夜村巷油灯光影"><rect width="160" height="100" fill="#172320"/><circle cx="80" cy="50" r="16" fill="#e0c090" opacity=".9"/><path d="M0 80 L160 80" stroke="#c8a06a" stroke-width="4"/></svg><div class="vplay">▶</div></div>
+          <div class="mi"><b>雨落村巷：一盏油灯照见的老手艺</b><small>09:31 · 治愈影像 · 沈砚</small></div>
+        </div>
+        <div class="mini">
+          <div class="mth"><svg viewBox="0 0 160 100" role="img" aria-label="稻田与远山航拍"><rect width="160" height="100" fill="#3a5a2f"/><path d="M0 70 Q80 44 160 70 L160 100 L0 100 Z" fill="#8fae5c"/><path d="M0 84 L160 84" stroke="#c8a06a" stroke-width="3"/></svg><div class="vplay">▶</div></div>
+          <div class="mi"><b>秋收航拍：一片稻田的十七种颜色</b><small>06:48 · 生活纪实 · 周渡</small></div>
+        </div>
+        <div class="mini">
+          <div class="mth"><svg viewBox="0 0 160 100" role="img" aria-label="祠堂里老人对坐交谈"><rect width="160" height="100" fill="#2a2018"/><rect x="20" y="40" width="120" height="46" fill="#4a3a26"/><circle cx="56" cy="52" r="10" fill="#e0c090"/><circle cx="106" cy="52" r="10" fill="#c8a06a"/></svg><div class="vplay">▶</div></div>
+          <div class="mi"><b>祠堂夜话：三代人讲同一个村名</b><small>22:15 · 人物访谈 · 白榆</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 专题企划 ================= -->
+<section class="block alt" id="special">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-kicker">PROJECT · 专题企划</div>
+      <h2 class="sec-title">持续运营的<em>专题企划</em>，把村子拍成一部长期作品</h2>
+      <p class="sec-desc">每一个专题都是团队与在地创作者共同经营的原创企划，按季更新，官方发布，支持长期追踪与收藏。</p>
+    </div>
+    <div class="special-grid">
+      <div class="special">
+        <div class="bgimg"><svg viewBox="0 0 400 300" role="img" aria-label="四季中的暗凭村梯田专题封面"><rect width="400" height="300" fill="#3d5730"/><path d="M0 180 Q100 130 200 180 T400 170 L400 300 L0 300 Z" fill="#8fae5c"/><path d="M0 230 Q100 190 200 230 T400 220 L400 300 L0 300 Z" fill="#5f7f3a"/><circle cx="310" cy="70" r="30" fill="#e0c090" opacity=".8"/></svg></div>
+        <div class="shade"></div>
+        <div class="sin">
+          <span class="status">更新中 · 第 4 季</span>
+          <h3>四季暗凭</h3>
+          <p>一年十二个节令，用固定机位与徒步视角交替拍摄同一片山坳，记录村子的春醒、夏盛、秋收与冬藏。</p>
+          <div class="count">已更新 18 集 · 累计 236 万次观看</div>
+        </div>
+      </div>
+      <div class="special">
+        <div class="bgimg"><svg viewBox="0 0 400 300" role="img" aria-label="老手艺人双手特写专题封面"><rect width="400" height="300" fill="#4a3a26"/><path d="M90 190 Q200 90 310 190" stroke="#e0c090" stroke-width="10" fill="none"/><rect x="150" y="130" width="100" height="120" fill="#c8a06a"/><rect x="176" y="160" width="48" height="60" fill="#8a6a3a"/></svg></div>
+        <div class="shade"></div>
+        <div class="sin">
+          <span class="status">更新中 · 第 2 季</span>
+          <h3>手上的村子</h3>
+          <p>篾匠、木匠、染布人、酿酒的阿婆。这里没有表演，只有手与材料之间长达数十年的默契。</p>
+          <div class="count">已更新 11 集 · 累计 158 万次观看</div>
+        </div>
+      </div>
+      <div class="special">
+        <div class="bgimg"><svg viewBox="0 0 400 300" role="img" aria-label="村口方言采集录音现场专题封面"><rect width="400" height="300" fill="#22371f"/><circle cx="200" cy="150" r="60" fill="none" stroke="#a8d99a" stroke-width="3"/><circle cx="200" cy="150" r="34" fill="none" stroke="#7fbf6a" stroke-width="2"/><rect x="192" y="80" width="16" height="140" fill="#c8a06a" opacity=".7"/></svg></div>
+        <div class="shade"></div>
+        <div class="sin">
+          <span class="status soon">筹拍中 · 开放报名</span>
+          <h3>村口方言计划</h3>
+          <p>为暗凭村及周边六个自然村建立方言语音档案，面向社区公开征集发音人，报名后可参与录制。</p>
+          <div class="count">已招募 26 位发音人 · 报名进行中</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 热门视频流 ================= -->
+<section class="block" id="flow">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-kicker">FEED · 热门内容</div>
+      <h2 class="sec-title">社区正在观看的<em>原创内容</em></h2>
+      <p class="sec-desc">来自认证创作者与企业编辑部的日常更新，可按题材筛选，每一部都是由作者上传的原创记录。</p>
+    </div>
+    <div class="filter-bar" id="filterBar">
+      <button class="chip active" data-f="all">全部</button>
+      <button class="chip" data-f="村落纪事">村落纪事</button>
+      <button class="chip" data-f="手艺访谈">手艺访谈</button>
+      <button class="chip" data-f="生活纪实">生活纪实</button>
+      <button class="chip" data-f="治愈影像">治愈影像</button>
+      <button class="chip" data-f="人物访谈">人物访谈</button>
+      <button class="chip" data-f="创作幕后">创作幕后</button>
+    </div>
+    <div class="flow-grid" id="flowGrid">
+
+      <div class="vcard" data-cat="村落纪事">
+        <div class="thumb">
+          <svg viewBox="0 0 640 360" role="img" aria-label="晒谷场上翻晒稻谷的村民">
+            <rect width="640" height="360" fill="#556b34"/>
+            <rect y="220" width="640" height="140" fill="#c8a06a"/>
+            <g fill="#e0c090"><circle cx="150" cy="280" r="14"/><circle cx="220" cy="300" r="14"/><circle cx="300" cy="270" r="14"/><circle cx="400" cy="300" r="14"/><circle cx="480" cy="272" r="14"/></g>
+            <circle cx="520" cy="180" r="10" fill="#1b2918"/><rect x="512" y="192" width="18" height="50" fill="#1b2918"/>
+          </svg>
+          <div class="overlay"></div><div class="badge-tl">村落纪事</div><div class="vplay">▶</div><div class="dur">14:20</div>
+        </div>
+        <div class="vbody">
+          <div class="tagline"><span class="tag">秋收</span><span class="tag earth">纪实</span></div>
+          <h3>晒谷场上的一整天：从露水未干到日头偏西</h3>
+          <p>翻谷、赶雀、收堆、装袋。看似重复的动作里，藏着村里人对一场雨的判断与一整年的期待。</p>
+          <div class="vmeta">
+            <div class="avatar" style="background:#c8a06a">周</div><span>周渡</span><span class="spacer"></span>
+            <button class="act like" data-base="892">♥ <b>892</b></button>
+            <button class="act fav">☆ 收藏</button>
+            <button class="act share">⤴ 分享</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vcard" data-cat="手艺访谈">
+        <div class="thumb">
+          <svg viewBox="0 0 640 360" role="img" aria-label="老木匠在工作台前使用刨子">
+            <rect width="640" height="360" fill="#3a2c1c"/>
+            <rect x="80" y="220" width="480" height="60" fill="#7a5f3a"/>
+            <rect x="180" y="150" width="260" height="70" rx="6" fill="#c8a06a"/>
+            <path d="M200 120 L420 120" stroke="#e0c090" stroke-width="6"/>
+            <circle cx="500" cy="140" r="18" fill="#e0c090" opacity=".7"/>
+          </svg>
+          <div class="overlay"></div><div class="badge-tl">手艺访谈</div><div class="vplay">▶</div><div class="dur">21:05</div>
+        </div>
+        <div class="vbody">
+          <div class="tagline"><span class="tag">木工</span><span class="tag earth">访谈</span></div>
+          <h3>木匠老陈：一把刨子用了三十八年</h3>
+          <p>他不识图纸，却能把一整根杉木做成一张严丝合缝的八仙桌。我们问他诀窍，他指了指自己的耳朵。</p>
+          <div class="vmeta">
+            <div class="avatar" style="background:#a8d99a">林</div><span>林禾</span><span class="spacer"></span>
+            <button class="act like" data-base="1436">♥ <b>1436</b></button>
+            <button class="act fav">☆ 收藏</button>
+            <button class="act share">⤴ 分享</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vcard" data-cat="生活纪实">
+        <div class="thumb">
+          <svg viewBox="0 0 640 360" role="img" aria-label="灶台上升起炊烟的老厨房">
+            <rect width="640" height="360" fill="#2a2018"/>
+            <rect x="120" y="220" width="400" height="90" fill="#4a3a26"/>
+            <circle cx="320" cy="200" r="46" fill="#c8a06a" opacity=".7"/>
+            <path d="M300 130 Q320 80 340 130 Q360 80 380 130" stroke="#e0c090" stroke-width="5" fill="none" opacity=".6"/>
+            <rect x="270" y="250" width="100" height="60" fill="#1b140e"/>
+          </svg>
+          <div class="overlay"></div><div class="badge-tl">生活纪实</div><div class="vplay">▶</div><div class="dur">11:33</div>
+        </div>
+        <div class="vbody">
+          <div class="tagline"><span class="tag">厨房</span><span class="tag">灶火</span></div>
+          <h3>柴火灶的三种火候：煮饭、炒茶、煨汤</h3>
+          <p>阿婆说，火是会说话的。看火苗颜色、听柴响，就知道今晚这锅饭能不能吃到锅巴。</p>
+          <div class="vmeta">
+            <div class="avatar" style="background:#e0c090">沈</div><span>沈砚</span><span class="spacer"></span>
+            <button class="act like" data-base="1102">♥ <b>1102</b></button>
+            <button class="act fav">☆ 收藏</button>
+            <button class="act share">⤴ 分享</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vcard" data-cat="治愈影像">
+        <div class="thumb">
+          <svg viewBox="0 0 640 360" role="img" aria-label="雨后屋檐水珠与远处青山">
+            <rect width="640" height="360" fill="#3c5740"/>
+            <path d="M0 240 L180 150 L360 240 L520 140 L640 220 L640 360 L0 360 Z" fill="#22371f"/>
+            <path d="M0 140 L640 140" stroke="#c8a06a" stroke-width="8"/>
+            <g fill="#cfe0c0" opacity=".8"><circle cx="120" cy="160" r="4"/><circle cx="220" cy="180" r="4"/><circle cx="360" cy="165" r="4"/><circle cx="500" cy="175" r="4"/></g>
+          </svg>
+          <div class="overlay"></div><div class="badge-tl">治愈影像</div><div class="vplay">▶</div><div class="dur">08:12</div>
+        </div>
+        <div class="vbody">
+          <div class="tagline"><span class="tag">雨声</span><span class="tag earth">慢节奏</span></div>
+          <h3>在暗凭村听一场雨：屋瓦、竹叶与溪水</h3>
+          <p>没有解说，没有配乐，只有四十分钟环境声的剪辑。适合在加完班的深夜打开。</p>
+          <div class="vmeta">
+            <div class="avatar" style="background:#7fbf6a">白</div><span>白榆</span><span class="spacer"></span>
+            <button class="act like" data-base="2381">♥ <b>2381</b></button>
+            <button class="act fav">☆ 收藏</button>
+            <button class="act share">⤴ 分享</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vcard" data-cat="人物访谈">
+        <div class="thumb">
+          <svg viewBox="0 0 640 360" role="img" aria-label="村小教师与孩子们坐在操场边">
+            <rect width="640" height="360" fill="#4f6a42"/>
+            <rect y="240" width="640" height="120" fill="#8fae5c"/>
+            <circle cx="220" cy="180" r="26" fill="#e0c090"/>
+            <rect x="200" y="206" width="40" height="60" rx="8" fill="#33422b"/>
+            <g fill="#c8a06a"><circle cx="330" cy="210" r="16"/><circle cx="380" cy="220" r="16"/><circle cx="430" cy="210" r="16"/></g>
+            <rect x="480" y="110" width="120" height="130" fill="#3a4a30"/>
+          </svg>
+          <div class="overlay"></div><div class="badge-tl">人物访谈</div><div class="vplay">▶</div><div class="dur">26:47</div>
+        </div>
+        <div class="vbody">
+          <div class="tagline"><span class="tag">教育</span><span class="tag">乡村</span></div>
+          <h3>村小教师周老师：我教过村里两代人</h3>
+          <p>从一支粉笔到一块屏幕，她在这间教室站了三十一年。访谈在她批改作业的间隙进行。</p>
+          <div class="vmeta">
+            <div class="avatar" style="background:#a8d99a">阿</div><span>阿棠</span><span class="spacer"></span>
+            <button class="act like" data-base="768">♥ <b>768</b></button>
+            <button class="act fav">☆ 收藏</button>
+            <button class="act share">⤴ 分享</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vcard" data-cat="创作幕后">
+        <div class="thumb">
+          <svg viewBox="0 0 640 360" role="img" aria-label="摄影师在山路边架设三脚架">
+            <rect width="640" height="360" fill="#2e4432"/>
+            <path d="M0 260 Q200 200 400 260 T640 250 L640 360 L0 360 Z" fill="#1b2d1c"/>
+            <rect x="300" y="180" width="8" height="90" fill="#c8a06a"/>
+            <path d="M280 270 L304 210 L330 270" stroke="#c8a06a" stroke-width="5" fill="none"/>
+            <rect x="284" y="150" width="40" height="30" rx="4" fill="#a8d99a"/>
+          </svg>
+          <div class="overlay"></div><div class="badge-tl">创作幕后</div><div class="vplay">▶</div><div class="dur">10:02</div>
+        </div>
+        <div class="vbody">
+          <div class="tagline"><span class="tag">拍摄</span><span class="tag earth">幕后</span></div>
+          <h3>怎么在只有自然光的老屋里拍出层次</h3>
+          <p>团队分享暗环境拍摄的布光思路、参数选择与后期取向，附完整拍摄清单，欢迎下载参考。</p>
+          <div class="vmeta">
+            <div class="avatar" style="background:#e0c090">编</div><span>品牌编辑部</span><span class="spacer"></span>
+            <button class="act like" data-base="654">♥ <b>654</b></button>
+            <button class="act fav">☆ 收藏</button>
+            <button class="act share">⤴ 分享</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="no-result" id="noResult">没有找到匹配的内容，换个题材试试看。</div>
+  </div>
+</section>
+
+<!-- ================= 创作者 ================= -->
+<section class="block alt" id="creators">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-kicker">CREATORS · 创作者矩阵</div>
+      <h2 class="sec-title">长期扎根村落的<em>创作者社区</em></h2>
+      <p class="sec-desc">他们有的住在村里，有的每月来一次。平台为其提供认证、版权保护与分成，共同维护内容生态。</p>
+    </div>
+    <div class="creator-grid">
+      <div class="creator">
+        <div class="bf" style="background:#a8d99a">阿</div>
+        <h3>阿棠</h3>
+        <div class="field">村落纪事 · 人物访谈</div>
+        <p>在暗凭村住了七年，习惯用最慢的方式拍最慢的生活。她说镜头是一种礼貌，要先学会等待。</p>
+        <div class="nums"><div><b>128</b>作品</div><div><b>42.6万</b>关注</div></div>
+        <button class="more" data-name="阿棠" data-info="认证创作者｜加入 2019 年｜擅长村落纪事与人物访谈｜代表作《水口桥头的一天》《祠堂夜话》｜累计播放 1860 万">查看档案</button>
+      </div>
+      <div class="creator">
+        <div class="bf" style="background:#c8a06a">林</div>
+        <h3>林禾</h3>
+        <div class="field">手艺访谈 · 文化记录</div>
+        <p>前媒体人，现专注手工艺影像口述史。擅长在不打断对方的前提下，问出最要紧的那句话。</p>
+        <div class="nums"><div><b>96</b>作品</div><div><b>31.2万</b>关注</div></div>
+        <button class="more" data-name="林禾" data-info="认证创作者｜加入 2020 年｜专注手工艺口述史｜代表作《篾匠九叔》《木匠老陈》｜曾获年度乡村影像推荐">查看档案</button>
+      </div>
+      <div class="creator">
+        <div class="bf" style="background:#e0c090">周</div>
+        <h3>周渡</h3>
+        <div class="field">生活纪实 · 航拍</div>
+        <p>本村人，白天种地，傍晚放无人机。他的素材库里有这片山坳十年的季节变化。</p>
+        <div class="nums"><div><b>211</b>作品</div><div><b>57.4万</b>关注</div></div>
+        <button class="more" data-name="周渡" data-info="认证创作者｜本地村民｜擅长航拍与农事纪实｜代表作《秋收航拍》《晒谷场的一天》｜素材授权合作开放中">查看档案</button>
+      </div>
+      <div class="creator">
+        <div class="bf" style="background:#7fbf6a">沈</div>
+        <h3>沈砚</h3>
+        <div class="field">治愈影像 · 声音采集</div>
+        <p>做环境声音的收集者，记录雨声、溪流、柴火与虫鸣，希望让城市里的人也能安静下来。</p>
+        <div class="nums"><div><b>74</b>作品</div><div><b>28.8万</b>关注</div></div>
+        <button class="more" data-name="沈砚" data-info="认证创作者｜声音采集与慢影像｜代表作《在暗凭村听一场雨》《灶火三种》｜提供无版权环境声素材">查看档案</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 影像墙 ================= -->
+<section class="block" id="wall">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-kicker">GALLERY · 影像墙</div>
+      <h2 class="sec-title">村里人拍下的<em>日常切片</em></h2>
+      <p class="sec-desc">社区用户上传并授权的影像合集，尺寸各异，记录的都是同一片山谷里不同的光线。</p>
+    </div>
+    <div class="wall">
+      <div class="wall-item w1">
+        <svg viewBox="0 0 640 360" role="img" aria-label="傍晚时分暗凭村全景与升起的炊烟">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a6b3c"/><stop offset="1" stop-color="#1f2d1b"/></linearGradient></defs>
+          <rect width="640" height="360" fill="url(#g1)"/>
+          <circle cx="520" cy="90" r="34" fill="#e0c090" opacity=".85"/>
+          <path d="M0 240 L140 190 L260 240 L400 180 L540 240 L640 200 L640 360 L0 360 Z" fill="#1b2d1c"/>
+          <rect x="120" y="250" width="90" height="60" fill="#3a4a30"/>
+          <path d="M108 250 L165 214 L222 250 Z" fill="#2a3922"/>
+          <rect x="300" y="260" width="110" height="64" fill="#33422b"/>
+          <path d="M286 260 L355 216 L424 260 Z" fill="#27351f"/>
+          <g stroke="#cfe0c0" stroke-width="3" opacity=".45" fill="none"><path d="M140 246 Q150 210 138 180"/><path d="M330 254 Q344 216 330 188"/></g>
+        </svg>
+        <div class="cap">黄昏 · 村子开始烧晚饭<small>摄影 @周渡</small></div>
+      </div>
+      <div class="wall-item w2">
+        <svg viewBox="0 0 300 375" role="img" aria-label="檐下挂着的玉米与红辣椒">
+          <rect width="300" height="375" fill="#3a2c1c"/>
+          <rect x="0" y="40" width="300" height="14" fill="#7a5f3a"/>
+          <g fill="#e0c090"><rect x="40" y="54" width="24" height="90" rx="10"/><rect x="90" y="54" width="24" height="120" rx="10"/><rect x="140" y="54" width="24" height="100" rx="10"/></g>
+          <g fill="#d9694f"><rect x="200" y="54" width="20" height="70" rx="9"/><rect x="230" y="54" width="20" height="88" rx="9"/></g>
+        </svg>
+        <div class="cap">檐下的秋天<small>摄影 @阿棠</small></div>
+      </div>
+      <div class="wall-item w3">
+        <svg viewBox="0 0 300 375" role="img" aria-label="清晨石板路上的一双布鞋特写">
+          <rect width="300" height="375" fill="#4a4f3a"/>
+          <g stroke="#c8a06a" stroke-width="3" opacity=".6"><path d="M0 80 L300 60"/><path d="M0 150 L300 140"/><path d="M0 230 L300 220"/><path d="M0 310 L300 300"/></g>
+          <ellipse cx="110" cy="270" rx="52" ry="26" fill="#1b2918"/>
+          <ellipse cx="196" cy="286" rx="52" ry="26" fill="#1b2918"/>
+        </svg>
+        <div class="cap">石阶上的布鞋<small>摄影 @沈砚</small></div>
+      </div>
+      <div class="wall-item w4">
+        <svg viewBox="0 0 400 400" role="img" aria-label="溪边洗衣的村妇与倒影">
+          <rect width="400" height="400" fill="#2e4432"/>
+          <rect y="220" width="400" height="180" fill="#3c5740"/>
+          <path d="M0 220 Q200 190 400 220" stroke="#8fae5c" stroke-width="6" fill="none"/>
+          <circle cx="180" cy="170" r="22" fill="#e0c090"/>
+          <rect x="160" y="192" width="40" height="60" rx="8" fill="#c8a06a"/>
+          <ellipse cx="180" cy="290" rx="60" ry="22" fill="#c8a06a" opacity=".25"/>
+        </svg>
+        <div class="cap">溪水边的午后<small>摄影 @白榆</small></div>
+      </div>
+      <div class="wall-item w5">
+        <svg viewBox="0 0 400 400" role="img" aria-label="老屋窗前的一束斜光">
+          <rect width="400" height="400" fill="#1b1510"/>
+          <rect x="90" y="80" width="220" height="240" fill="#3a2c1c"/>
+          <path d="M130 100 L270 100 L340 340 L60 340 Z" fill="#e0c090" opacity=".28"/>
+          <path d="M200 80 L200 320 M90 200 L310 200" stroke="#1b1510" stroke-width="10"/>
+        </svg>
+        <div class="cap">窗与光<small>摄影 @林禾</small></div>
+      </div>
+      <div class="wall-item w6">
+        <svg viewBox="0 0 400 400" role="img" aria-label="田埂上的一排稻草人">
+          <rect width="400" height="400" fill="#556b34"/>
+          <path d="M0 300 Q200 250 400 300 L400 400 L0 400 Z" fill="#8fae5c"/>
+          <g stroke="#7a5f3a" stroke-width="6"><path d="M100 300 L100 200"/><path d="M200 300 L200 180"/><path d="M300 300 L300 220"/></g>
+          <g fill="#c8a06a"><circle cx="100" cy="190" r="14"/><circle cx="200" cy="170" r="14"/><circle cx="300" cy="210" r="14"/></g>
+        </svg>
+        <div class="cap">稻草人三兄弟<small>摄影 @周渡</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 故事与评价 ================= -->
+<section class="block alt">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-kicker">STORIES · 故事与口碑</div>
+      <h2 class="sec-title">为什么他们愿意<em>留在暗凭村</em></h2>
+      <p class="sec-desc">创作者写下的随笔与社区用户的真实反馈，构成了这个平台最柔软的部分。</p>
+    </div>
+    <div class="story-grid" style="margin-bottom:44px">
+      <div class="story">
+        <div class="sk">随笔 · 创作者手记</div>
+        <h3>我为什么会搬进一个连快递都不送的村子</h3>
+        <p>最开始只是为了拍一个短片，计划待两周。结果第三天下雨，我坐在门槛上看雨水从瓦当滴到石臼里，忽然觉得之前十年拍的东西都很急。后来我把设备搬过来了，信号不好反而成了优点——没人催我更新，我就可以等一朵云慢慢走。暗凭村教会我的第一件事是，素材不会跑，但你得在场。</p>
+        <div class="by"><div class="avatar" style="background:#a8d99a">阿</div>阿棠 · 村落纪事创作者</div>
+      </div>
+      <div class="story">
+        <div class="sk">随笔 · 品牌手记</div>
+        <h3>把一部纪录片做长：我们的六年与十八条片</h3>
+        <p>《四季暗凭》拍到第四季，团队换过三批人，唯一没变的是固定机位的位置。我们算过，同一个角度累计拍了超过七百小时。这不是什么宏大叙事，只是想让未来的某一天，如果有人想知道这个山谷曾经长什么样，有地方可查。作为一家持续运营的影像企业，我们更愿意相信时间的复利，而不是一次爆款。</p>
+        <div class="by"><div class="avatar" style="background:#e0c090">编</div>品牌编辑部 · 官方发布</div>
+      </div>
+    </div>
+    <h3 style="margin-bottom:18px;color:#cfdcc8">社区口碑</h3>
+    <div class="review-grid">
+      <div class="review">
+        <p>关注这个平台两年多，最喜欢的是他们不急着把村子拍成风景明信片。很多镜头其实很“不完美”，比如老人说话时的长停顿，但恰恰是这些地方让我觉得真实。</p>
+        <div class="who"><div class="avatar" style="background:#7fbf6a">顾</div><div><b>顾清和</b><span>· 长期订阅用户</span></div></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review">
+        <p>作为做乡建的设计师，这里的方言档案和手艺访谈帮了我大忙，素材很细，能看出团队是真的下过功夫。画质也稳，投屏看完全没问题。</p>
+        <div class="who"><div class="avatar" style="background:#c8a06a">徐</div><div><b>徐一苇</b><span>· 乡建从业者</span></div></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review">
+        <p>晚上失眠就打开环境声那一栏，雨声和柴火声真的有效。希望以后能出更长一点的版本，两个小时那种。</p>
+        <div class="who"><div class="avatar" style="background:#e0c090">momo</div><div><b>momo</b><span>· 普通用户</span></div></div>
+        <div class="stars">★★★★☆</div>
+      </div>
+      <div class="review">
+        <p>投稿通道响应挺快的，我上传的家乡秋景三天就过审了，还收到了编辑的修改建议，这在别的平台基本不可能。就是希望移动端的剪辑辅助再完善点。</p>
+        <div class="who"><div class="avatar" style="background:#a8d99a">陈</div><div><b>陈拾</b><span>· 认证创作者</span></div></div>
+        <div class="stars">★★★★☆</div>
+      </div>
+      <div class="review">
+        <p>带孩子一起看的，他会问为什么那个爷爷要自己编篮子。比动画片有营养多了，感谢这样的内容还存在。</p>
+        <div class="who"><div class="avatar" style="background:#7fbf6a">林</div><div><b>林苗苗</b><span>· 家长用户</span></div></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review">
+        <p>影像墙的尺寸排布挺有意思，像翻一本画册。要是能按季节筛选就更好了，我想看看冬天的合集。</p>
+        <div class="who"><div class="avatar" style="background:#c8a06a">叶</div><div><b>叶知秋</b><span>· 摄影爱好者</span></div></div>
+        <div class="stars">★★★★☆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 企业动态 ================= -->
+<section class="block" id="news">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-kicker">NEWS · 企业动态</div>
+      <h2 class="sec-title">官方发布与<em>社区更新</em></h2>
+      <p class="sec-desc">品牌的近期动向、比赛报名与内容计划，均在此同步，欢迎关注与参与。</p>
+    </div>
+    <div class="news-list">
+      <div class="news">
+        <div class="date">2024.11.18</div>
+        <div class="nt"><b>第二届“村口影像”征集正式开启报名</b><p>面向所有影像爱好者征集 3—15 分钟的乡村题材短片，设纪实、人物、实验三个单元，报名与上传截止 11 月 30 日，评审结果将于次年 1 月公布。</p></div>
+        <span class="kind">报名</span>
+      </div>
+      <div class="news">
+        <div class="date">2024.11.09</div>
+        <div class="nt"><b>《暗凭村·冬藏纪》第四集上线</b><p>本集记录地窖整理、腊味制作与第一场雪前的准备，全片在村内实景拍摄，由品牌编辑部与本地创作者联合完成。</p></div>
+        <span class="kind">上线</span>
+      </div>
+      <div class="news">
+        <div class="date">2024.10.27</div>
+        <div class="nt"><b>创作者开放日·第 7 期：古井旁的拍摄课</b><p>本期由创作者周渡主讲航拍与地面镜头的衔接技巧，限额 30 人，村民与社区用户均可报名，现场提供设备体验。</p></div>
+        <span class="kind">活动</span>
+      </div>
+      <div class="news">
+        <div class="date">2024.10.12</div>
+        <div class="nt"><b>方言语音档案完成首批 26 位发音人采集</b><p>“村口方言计划”已完成六个自然村的首轮录音，全部素材将陆续以专题短片与音频形式在平台公开。</p></div>
+        <span class="kind">进展</span>
+      </div>
+      <div class="news">
+        <div class="date">2024.09.30</div>
+        <div class="nt"><b>平台上线创作者版权保护与分成说明</b><p>原创作品将获得平台存证与侵权协查支持，商业使用收益按约定比例分成，细则可在帮助中心查阅。</p></div>
+        <span class="kind">公告</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 投稿 / 联系 ================= -->
+<section class="block alt" id="join">
+  <div class="container">
+    <div class="join">
+      <div>
+        <h2>把你的<em>家乡</em>，拍给我们看</h2>
+        <p>暗凭村不只属于一个村子。我们相信每一处被忽略的地方，都有值得被记录的日常。如果你也在拍自己的家乡、街区或手艺，欢迎上传作品，加入这个仍在成长的内容生态。</p>
+        <div class="join-list">
+          <span><i>01</i>投稿入口全年开放，3 个工作日内反馈审核结果</span>
+          <span><i>02</i>原创作品享版权存证与侵权协查支持</span>
+          <span><i>03</i>优质作品将进入专题企划与官方推荐位</span>
+          <span><i>04</i>合作与采访请通过下方邮箱联系品牌团队</span>
+        </div>
+      </div>
+      <form class="join-form" id="joinForm">
+        <label for="jname">称呼</label>
+        <input type="text" id="jname" placeholder="怎么称呼你" required>
+        <label for="jmail">联系方式</label>
+        <input type="text" id="jmail" placeholder="邮箱或手机号" required>
+        <label for="jmsg">作品简介</label>
+        <textarea id="jmsg" placeholder="简单说说你的作品题材与时长"></textarea>
+        <button type="submit" class="btn btn-primary">提交投稿意向</button>
+        <div class="form-msg" id="formMsg">已收到，编辑部会尽快与你联系。</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="block" id="faq">
+  <div class="container">
+    <div class="sec-head" style="text-align:center">
+      <div class="sec-kicker" style="justify-content:center">FAQ · 帮助中心</div>
+      <h2 class="sec-title">常见问题</h2>
+      <p class="sec-desc" style="margin:10px auto 0">关于内容、投稿、版权与合作，这里有最直接的答案。</p>
+    </div>
+    <div class="faq-wrap">
+      <details class="faq" open>
+        <summary>暗凭村是一个什么样的平台？</summary>
+        <div class="fa-body">暗凭村官方网站是一个垂直于乡村影像领域的原创视频社区，由品牌团队与认证创作者共同产出内容，题材涵盖村落纪事、手艺访谈、生活纪实与治愈影像。我们不追求更新速度，更看重内容的真实度与长期价值。</div>
+      </details>
+      <details class="faq">
+        <summary>如何向平台投稿自己的作品？</summary>
+        <div class="fa-body">页面底部“投稿入口”可提交意向，也可通过帮助中心进入上传通道。作品需为原创，时长建议 3—20 分钟，提交后 3 个工作日内会收到审核反馈。通过的作品会进入内容库，并有机会被推荐至专题企划。</div>
+      </details>
+      <details class="faq">
+        <summary>平台的影像画质与格式有什么要求？</summary>
+        <div class="fa-body">推荐上传 1080P 及以上、16:9 或 4:3 比例的横屏素材，编码建议 H.264。若为竖屏内容，平台会在播放器中自适应显示，不影响审核。原始素材请自行保留，便于后续的高清版本更新。</div>
+      </details>
+      <details class="faq">
+        <summary>创作者的版权如何保障？</summary>
+        <div class="fa-body">所有经审核上传的作品均会记录上传时间与作者信息，用于版权存证。平台不擅自将作品用于商业用途，商业合作需经作者单独授权并签署分成协议，具体条款可在版权说明中查看。</div>
+      </details>
+      <details class="faq">
+        <summary>“村口影像”征集可以重复报名吗？</summary>
+        <div class="fa-body">同一单元下每位作者限报一部作品，不同单元可分别报名。若作品已参与过往期征集，需有明显修改后方可再次提交。报名截止后不接受补充材料，请预留上传时间。</div>
+      </details>
+      <details class="faq">
+        <summary>是否可以在其他平台同步发布我的作品？</summary>
+        <div class="fa-body">可以。平台不要求独家，但希望你在其他平台发布时注明作品曾参与本站专题或征集。若涉及品牌商业合作内容，需提前告知编辑部，以便在页面中做出相应标注。</div>
+      </details>
+      <details class="faq">
+        <summary>如何联系品牌团队进行合作？</summary>
+        <div class="fa-body">合作邮箱与联系方式在页脚与帮助中心均有公示。常见的合作形式包括影像定制、在地文化项目共建、素材授权与联合企划，通常会在收到需求后 5 个工作日内回复初步方案。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 页脚 ================= -->
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <div class="logo-mark">暗</div>
+          <div class="logo-txt"><b>暗凭村</b><small>ANPING CUN</small></div>
+        </div>
+        <p>暗凭村官方网站，专注乡村影像的原创视频品牌与内容社区。以专业的高清影像与长期主义态度，持续记录被忽略的村落日常，致力于成为值得信赖的乡村记忆档案平台。</p>
+      </div>
+      <div class="foot-col">
+        <h4>内容</h4>
+        <a href="#focus">影像焦点</a>
+        <a href="#special">专题企划</a>
+        <a href="#flow">热门内容</a>
+        <a href="#wall">影像墙</a>
+      </div>
+      <div class="foot-col">
+        <h4>社区</h4>
+        <a href="#creators">创作者矩阵</a>
+        <a href="#join">投稿入口</a>
+        <a href="#news">企业动态</a>
+        <a href="#faq">帮助中心</a>
+      </div>
+      <div class="foot-col">
+        <h4>联系</h4>
+        <a href="#join">合作与采访</a>
+        <a href="#join">内容授权</a>
+        <a href="#faq">版权说明</a>
+        <a href="#join">反馈建议</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 暗凭村 版权所有 · 持续运营中 · 本站内容均为原创或经授权发布</span>
+      <span>备案号占位 · 品牌官网 · 用户至上 · 匠心记录</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<div class="modal-mask" id="modalMask">
+  <div class="modal">
+    <button class="close-m" id="modalClose" aria-label="关闭">×</button>
+    <h3 id="modalTitle">标题</h3>
+    <div class="sub" id="modalSub"></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+<div class="toast" id="toast">已复制链接</div>
+
+<script>
+(function(){
+  /* 公告关闭 */
+  var noticeClose=document.getElementById('noticeClose');
+  if(noticeClose){
+    noticeClose.addEventListener('click',function(){
+      document.getElementById('notice').style.display='none';
+    });
+  }
+
+  /* 移动端导航 */
+  var ham=document.getElementById('hamburger'),mnav=document.getElementById('mobileNav');
+  ham.addEventListener('click',function(){mnav.classList.toggle('open');});
+  mnav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){mnav.classList.remove('open');});
+  });
+
+  /* 搜索反馈 */
+  var sInput=document.getElementById('searchInput'),sBtn=document.getElementById('searchBtn');
+  function doSearch(){
+    var q=(sInput.value||'').trim();
+    if(!q){showToast('请输入关键词后再搜索');return;}
+    showToast('正在检索“'+q+'”相关内容…');
+    var cards=document.querySelectorAll('#flowGrid .vcard');
+    var hit=0;
+    cards.forEach(function(c){
+      var txt=c.textContent;
+      var ok=txt.indexOf(q)>-1;
+      c.style.display=ok?'':'none';
+      if(ok)hit++;
+    });
+    document.getElementById('noResult').classList.toggle('show',hit===0);
+    document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('active');});
+    document.querySelector('.chip[data-f="all"]').classList.add('active');
+    setTimeout(function(){
+      var target=document.getElementById('flow');
+      if(hit>0){target.scrollIntoView({behavior:'smooth'});}
+    },300);
+  }
+  sBtn.addEventListener('click',doSearch);
+  sInput.addEventListener('keydown',function(e){if(e.key==='Enter')doSearch();});
+
+  /* 标签筛选 */
+  var filterBar=document.getElementById('filterBar');
+  filterBar.addEventListener('click',function(e){
+    var btn=e.target.closest('.chip');
+    if(!btn)return;
+    filterBar.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active');});
+    btn.classList.add('active');
+    var f=btn.getAttribute('data-f');
+    var hit=0;
+    document.querySelectorAll('#flowGrid .vcard').forEach(function(card){
+      var ok=(f==='all'||card.getAttribute('data-cat')===f);
+      card.style.display=ok?'':'none';
+      if(ok)hit++;
+    });
+    document.getElementById('noResult').classList.toggle('show',hit===0);
+  });
+
+  /* 点赞 / 收藏 / 分享 */
+  document.addEventListener('click',function(e){
+    var like=e.target.closest('.act.like');
+    if(like){
+      var b=like.querySelector('b');
+      var n=parseInt(like.getAttribute('data-base')||b.textContent,10);
+      if(like.classList.contains('liked')){
+        like.classList.remove('liked');
+        b.textContent=n;
+      }else{
+        like.classList.add('liked');
+        b.textContent=n+1;
+        showToast('已点赞，感谢支持原创');
+      }
+      return;
+    }
+    var fav=e.target.closest('.act.fav');
+    if(fav){
+      if(fav.classList.contains('faved')){
+        fav.classList.remove('faved');
+        fav.innerHTML='☆ 收藏';
+      }else{
+        fav.classList.add('faved');
+        fav.innerHTML='♥ 已收藏';
+        showToast('已加入收藏夹');
+      }
+      return;
+    }
+    var share=e.target.closest('.act.share');
+    if(share){
+      openShare();
+      return;
+    }
+  });
+
+  /* 弹窗基础 */
+  var mask=document.getElementById('modalMask'),
+      mTitle=document.getElementById('modalTitle'),
+      mSub=document.getElementById('modalSub'),
+      mBody=document.getElementById('modalBody');
+  function openModal(title,sub,html){
+    mTitle.textContent=title;
+    mSub.textContent=sub||'';
+    mBody.innerHTML=html||'';
+    mask.classList.add('show');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){
+    mask.classList.remove('show');
+    document.body.style.overflow='';
+  }
+  document.getElementById('modalClose').addEventListener('click',closeModal);
+  mask.addEventListener('click',function(e){if(e.target===mask)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+  function openShare(){
+    openModal('分享这段影像','复制链接或选择你想分享到的平台',
+      '<p>《暗凭村》原创内容，欢迎分享给同样喜欢慢节奏影像的朋友。</p>'+
+      '<div class="share-row">'+
+      '<button data-sh="copy">复制链接</button>'+
+      '<button data-sh="wechat">微信</button>'+
+      '<button data-sh="weibo">微博</button>'+
+      '<button data-sh="qq">QQ</button>'+
+      '</div>');
+  }
+
+  /* 分享操作 */
+  mBody.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-sh]');
+    if(!b)return;
+    var t=b.getAttribute('data-sh');
+    if(t==='copy'){
+      var link='anpingcun.example/share';
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(function(){
+          showToast('链接已复制，可粘贴分享了');
+        }).catch(function(){showToast('复制失败，请手动复制');});
+      }else{
+        showToast('链接已生成：'+link);
+      }
+      closeModal();
+    }else{
+      var name={wechat:'微信',weibo:'微博',qq:'QQ'}[t];
+      showToast('已唤起'+name+'分享（示意）');
+      closeModal();
+    }
+  });
+
+  /* 创作者档案 */
+  document.querySelectorAll('.creator .more').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var name=btn.getAttribute('data-name');
+      var info=btn.getAttribute('data-info');
+      openModal(name+' · 创作者档案','认证创作者 · 官方资料',
+        '<p>'+info+'</p>'+
+        '<p>主页内容均经平台审核，欢迎关注其最新更新，或在作品下留言交流。若希望与其进行内容合作，可通过合作邮箱联系编辑部转达。</p>'+
+        '<div class="comment-list">'+
+        '<div class="comment"><b>社区编辑</b><p>该创作者近期更新活跃，作品保存完整，适合连续观看。</p></div>'+
+        '<div class="comment"><b>留言精选</b><p>“看完之后很想回一趟外婆家。”——来自站内用户评论</p></div>'+
+        '</div>');
+    });
+  });
+
+  /* 影像墙点击 */
+  document.querySelectorAll('.wall-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      var cap=item.querySelector('.cap');
+      var title=cap?cap.childNodes[0].textContent.trim():'影像作品';
+      var by=cap?cap.querySelector('small').textContent:'社区投稿';
+      openModal(title,'影像墙 · '+by,
+        '<p>这是一张来自社区投稿的影像作品，记录了暗凭村及周边的日常片段。平台已获得作者授权展示。</p>'+
+        '<p>如果你也拍下了自己的家乡，欢迎通过投稿入口上传，让更多人看见。</p>'+
+        '<div class="share-row"><button data-sh="copy">复制链接</button><button data-sh="wechat">微信</button><button data-sh="weibo">微博</button></div>');
+    });
+  });
+
+  /* 投稿表单 */
+  var joinForm=document.getElementById('joinForm');
+  joinForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('jname').value.trim();
+    if(!n){showToast('请填写称呼');return;}
+    document.getElementById('formMsg').classList.add('show');
+    showToast('投稿意向已提交，感谢你的参与');
+    joinForm.reset();
+    setTimeout(function(){document.getElementById('formMsg').classList.remove('show');},5000);
+  });
+
+  /* 回到顶部 */
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){
+    toTop.classList.toggle('show',window.scrollY>560);
+    var secs=document.querySelectorAll('section[id],footer[id]');
+    var navLinks=document.querySelectorAll('nav.main a');
+    var cur='';
+    secs.forEach(function(s){
+      if(window.scrollY>=s.offsetTop-150)cur=s.id;
+    });
+    navLinks.forEach(function(a){
+      a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
+    });
+  },{passive:true});
+  toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* Toast */
+  var toast=document.getElementById('toast'),toastTimer=null;
+  function showToast(msg){
+    toast.textContent=msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){toast.classList.remove('show');},2200);
+  }
+})();
+</script>
+</body>
+  </html>
